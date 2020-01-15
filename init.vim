@@ -2,17 +2,12 @@
 call plug#begin('~/.local/share/nvim/plugs')
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'kine/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-startify'
 Plug 'majutsushi/tagbar'
 Plug 'fholgado/minibufexpl.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'neoclide/coc.nvim',{'branch':'release'}
-  Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
-    Plug 'ObserverOfTime/ncm2-jc2', {'for': ['java', 'jsp']}
-Plug 'artur-shaik/vim-javacomplete2', {'for': ['java', 'jsp']}
 call plug#end()
 filetype on
 filetype indent on
