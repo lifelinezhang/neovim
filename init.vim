@@ -7,32 +7,52 @@ Plug 'scrooloose/nerdtree'                                                      
 Plug 'mhinz/vim-startify'                                                            "开始界面
 Plug 'majutsushi/tagbar'                                                             "函数列表
 Plug 'fholgado/minibufexpl.vim'                                                      "buffer列表
-Plug 'neoclide/coc.nvim',{'branch':'release'}                                        "代码补全
+Plug 'neoclide/coc.nvim',{'branch':'release'}                                        "代码补全Plug 'xuyuanp/nerdtree-git-plugin'
+Plug 'xuyuanp/nerdtree-git-plugin'                                                   "在nerdtree上显示git状态
+Plug 'morhetz/gruvbox'                                                               "主题
+Plug 'lifepillar/vim-solarized8'
 call plug#end()
 filetype on
 filetype indent on
 filetype plugin on
 filetype plugin indent on
 "                                     <----  插件配置  ---->
+"solarized8
+set background=light
+set t_Co=256
+"nerdtree-git-plugin
+"各种git状态对应的图案
+let g:NERDTreeIndicatorMapCustom = {                                              
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 "coc
 "coc安装的插件
 let g:coc_global_extensions = ['coc-tsserver','coc-html',
-  \'coc-css', 'coc-json']     
+    \'coc-css', 'coc-json']     
 function! s:check_back_space() abort                                                 "tab键选择
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"                               "cr键确认选择
 "startify          
 "初始页面标签
 let g:startify_bookmarks=[    
-  \ '/home/lifeline/.config/nvim/init.vim',
-  \ '/home/lifeline/.config/nvim/coc-settings.json',
-  \]
+    \ '/home/lifeline/.config/nvim/init.vim',
+    \ '/home/lifeline/.config/nvim/coc-settings.json',
+    \]
 "minibugexpl
 nmap <F6> :MBEOpen<CR>                                                               "开启buffer列表
 nmap <F8> :MBEClose<CR>                                                              "关闭buffer列表
@@ -46,6 +66,8 @@ nmap <F5> :TagbarToggle<CR>                                                     
 let NERDTreeWinPos='left'                                                            "左侧显示
 let NERDTreeWinSizw=30                                                               "宽度为30
 nmap <F7> :NERDTreeToggle<CR>
+"airline-themes
+let g:airline_theme='dark'
 "airline
 let g:airline#extensions#tabline#enables=1                                           "显示buffer
 let g:airline#extensions#tabline#buffer_nr_show=1
@@ -58,7 +80,7 @@ set noswapfile                                                                  
 nmap <F2> <ESC>:source $MYVIMRC<Cr>                                                  "重新加载src文件
 nmap <C-tab> :bn<Cr>                                                                 "跳转到上一个buffer
 nmap <C-q>   :bp<CR>                                                                 "跳转到下一个buffer
-colorscheme morning                                                                  "主题设置
+colorscheme solarized8                                                               "主题设置
 set fileencodings=utf-8,gbk,chinese                                                  "编码格式设置
 language message zh_CN.utf-8
 syntax on                                                                            "高亮显示
@@ -68,7 +90,6 @@ set nocompatible                                                                
 set hlsearch                                                                         "高亮显示匹配
 set incsearch                                                                        "边查找边高亮显示匹配
 set cursorline                                                                       "高亮显示行
-set cursorcolumn                                                                     "高亮显示列
 set softtabstop=0                                                                    "关闭softtabstop 永远不要将空格和tab混合输入
 set tabstop=4                                                                        "设置tab键的空格长度
 set shiftwidth=4                                                                     "使用 >> << 或 == 来缩进代码的时候补出的空格数
@@ -77,8 +98,6 @@ set autoindent                                                                  
 inoremap ( ()<LEFT>                                                                  "括号匹配
 inoremap [ []<LEFT>
 inoremap { {}<LEFT>
-
-
 "                                     <----  复制粘贴  ---->
 nmap <C-c> "+yaw
 nmap <C-v> "+p
