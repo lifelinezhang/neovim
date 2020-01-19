@@ -9,8 +9,8 @@ Plug 'majutsushi/tagbar'                                                        
 Plug 'fholgado/minibufexpl.vim'                                                      "buffer列表
 Plug 'neoclide/coc.nvim',{'branch':'release'}                                        "代码补全Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'xuyuanp/nerdtree-git-plugin'                                                   "在nerdtree上显示git状态
-Plug 'morhetz/gruvbox'                                                               "主题
-Plug 'lifepillar/vim-solarized8'
+Plug 'lifepillar/vim-solarized8'                                                     "主题
+Plug 'tpope/vim-surround'                                                            "括号插件
 call plug#end()
 filetype on
 filetype indent on
@@ -95,7 +95,8 @@ set tabstop=4                                                                   
 set shiftwidth=4                                                                     "使用 >> << 或 == 来缩进代码的时候补出的空格数
 set expandtab                                                                        "tab键输入的永远是空格
 set autoindent                                                                       "自动缩进
-inoremap ( ()<LEFT>                                                                  "括号匹配
+autocmd BufRead,BufNewFile *.{json,js,css,html} set noimdisable
+inoremap ( ()<LEFT>
 inoremap [ []<LEFT>
 inoremap { {}<LEFT>
 "                                     <----  复制粘贴  ---->
