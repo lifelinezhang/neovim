@@ -22,7 +22,7 @@ set background=light
 set t_Co=256
 "nerdtree-git-plugin
 "各种git状态对应的图案
-let g:NERDTreeIndicatorMapCustom = {                                              
+let g:NERDTreeGitStatusIndicatorMapCustom = {                                              
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
