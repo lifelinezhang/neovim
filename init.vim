@@ -1,5 +1,5 @@
 "                                     <----  插件管理  ---->
-call plug#begin('~/.vim/autoload/plugs')
+call plug#begin('~/.vim/autoload/plug')
 Plug 'bling/vim-airline'                                                             "状态栏
 Plug 'vim-airline/vim-airline-themes'                                                "状态栏主题
 Plug 'kien/ctrlp.vim'                                                                "文件查找
